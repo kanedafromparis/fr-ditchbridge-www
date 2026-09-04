@@ -1,4 +1,4 @@
-name: Roq Site Deploy
+name: Roq Site Deploy to SWC
 
 on:
   push:
@@ -10,13 +10,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      site-full-url: ${{ vars.SITE_URL }}
+      site-url: ${{ vars.SITE_URL }}
+      site_path: "/"
     steps:
       - uses: actions/checkout@v6
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1.1
         with:
-          site-future: ${{ env.SITE_URL }}
-          site-url: ${{ env.SITE_URL }}
           github-token: ${{ secrets.GITHUB_TOKEN }}   # Used to automatically get the GitHub Pages url
       - name: Set up S3cmd cli tool
         # https://github.com/marketplace/actions/use-s3cmd
@@ -30,6 +32,6 @@ jobs:
 
       - name: Interact with object storage
         run: |
-          cd target/rog &&\
+          cd target/roq &&\
           s3cmd sync --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           

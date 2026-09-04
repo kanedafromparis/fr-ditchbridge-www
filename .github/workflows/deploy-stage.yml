@@ -37,7 +37,7 @@ jobs:
         run: |
           cd target/roq &&\
           s3cmd sync --no-mime-magic --guess-mime-type --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
-          s3cmd modify "s3://$${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
+          s3cmd modify "s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
           # find . -name "*.css" -exec  s3cmd put {} --mime-type "text/css" --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;
           # text/javascript
           # text/javascript

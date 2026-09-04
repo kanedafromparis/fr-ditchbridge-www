@@ -36,7 +36,7 @@ jobs:
       - name: Interact with object storage
         run: |
           cd target/roq &&\
-          s3cmd sync --guess-mime-type --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          s3cmd sync --no-mime-magic --guess-mime-type --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           # find . -name "*.css" -exec  s3cmd put {} --mime-type "text/css" --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;
           # text/javascript
           # text/javascript

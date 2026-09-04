@@ -32,12 +32,24 @@ jobs:
           # bucket_id: ${{ secrets.S3_SCW_BUCKET_ID }}
           access_key: ${{ secrets.SCW_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
+      - name: Interact with object storage
+        run: |
+          echo "-----"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/app-VVQ4RHFT.css 
+          echo "-----"
+          echo "-----"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/ | grep MIME
+          echo "-----"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css | grep MIME
+          echo "-----"
 
       - name: Interact with object storage
         run: |
           cd target/roq &&\
-          s3cmd sync --no-mime-magic --guess-mime-type --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
-          s3cmd modify "s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css | grep MIME
+          s3cmd sync --no-mime-magic  --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          # --guess-mime-type
+          # s3cmd modify "s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
           # find . -name "*.css" -exec  s3cmd put {} --mime-type "text/css" --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;
           # text/javascript
           # text/javascript

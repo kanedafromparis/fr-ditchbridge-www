@@ -13,12 +13,15 @@ jobs:
     env:
       site-full-url: ${{ vars.SITE_URL }}
       site-url: ${{ vars.SITE_URL }}
-      site_path: "/"
+      site-path: "/"
     steps:
       - uses: actions/checkout@v6
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1.1
         with:
+          site-url: ${{ vars.SITE_URL }}
+          site-path: "/"
+          github-pages: false
           github-token: ${{ secrets.GITHUB_TOKEN }}   # Used to automatically get the GitHub Pages url
       - name: Set up S3cmd cli tool
         # https://github.com/marketplace/actions/use-s3cmd

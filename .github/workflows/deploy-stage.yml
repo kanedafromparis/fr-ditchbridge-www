@@ -15,8 +15,8 @@ jobs:
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1.1
         with:
-          full_url: ${{ env.SITE_URL }}
-          site_url: ${{ env.SITE_URL }}
+          full-url: ${{ env.SITE_URL }}
+          site-url: ${{ env.SITE_URL }}
           github-token: ${{ secrets.GITHUB_TOKEN }}   # Used to automatically get the GitHub Pages url
   deploy:
     runs-on: ubuntu-latest
@@ -28,13 +28,13 @@ jobs:
         with:
           provider: scaleway # default is linode
           region: 'fr-par'
-          bucket_id: ${{ secrets.S3_SCW_BUCKET_ID }}
+          # bucket_id: ${{ secrets.S3_SCW_BUCKET_ID }}
           access_key: ${{ secrets.SCW_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
 
       - name: Interact with object storage
         run: |
           pwd
-          ls target/roq
-          s3cmd sync --recursive --acl-public target/roq s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          ls fr-ditchbridge-www/fr-ditchbridge-www
+          s3cmd sync --recursive --acl-public fr-ditchbridge-www/fr-ditchbridge-www s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           

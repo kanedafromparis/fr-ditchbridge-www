@@ -40,5 +40,5 @@ jobs:
         run: |
           pwd
           ls target/roq
-          s3cmd sync --recursive --acl-public target/roq s3://${{ bucket_id }}/
+          s3cmd sync --recursive --acl-public target/roq s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           

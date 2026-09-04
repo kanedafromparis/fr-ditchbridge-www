@@ -15,7 +15,7 @@ jobs:
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1.1
         with:
-          full-url: ${{ env.SITE_URL }}
+          site-future: ${{ env.SITE_URL }}
           site-url: ${{ env.SITE_URL }}
           github-token: ${{ secrets.GITHUB_TOKEN }}   # Used to automatically get the GitHub Pages url
   deploy:
@@ -35,6 +35,6 @@ jobs:
       - name: Interact with object storage
         run: |
           pwd
-          ls fr-ditchbridge-www/fr-ditchbridge-www
+          ls 
           s3cmd sync --recursive --acl-public fr-ditchbridge-www/fr-ditchbridge-www s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           

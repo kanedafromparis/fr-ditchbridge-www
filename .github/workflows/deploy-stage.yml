@@ -37,4 +37,5 @@ jobs:
         run: |
           cd target/roq &&\
           s3cmd sync --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          find . -name "*.css" -exec  s3cmd put {} --mime-type 'text/css' --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;
           

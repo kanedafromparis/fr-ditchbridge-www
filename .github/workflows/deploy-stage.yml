@@ -30,7 +30,6 @@ jobs:
 
       - name: Interact with object storage
         run: |
-          pwd
-          ls target/roq
-          s3cmd sync --recursive --acl-public target/roq s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          cd target/rog &&\
+          s3cmd sync --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           

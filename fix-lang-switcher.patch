@@ -1,0 +1,95 @@
+From 4187a00fdbaba565ac5251077617e71a8dbef844 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 27 Aug 2026 20:29:45 +0000
+Subject: [PATCH] fix: remplacer le switcher de langue JS par des liens directs
+ Roq
+
+Le switcher JavaScript construisait /en/ sans tenir compte du
+chemin de base GitHub Pages (/fr-ditchbridge-www/en/).
+Remplacement par deux liens statiques utilisant site.url.resolve()
+qui produisent automatiquement la bonne URL.
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_011S4Zz9Lu7dQo1JixzpZ2wb
+---
+ templates/partials/header.html | 54 ++++++++++------------------------
+ 1 file changed, 15 insertions(+), 39 deletions(-)
+
+diff --git a/templates/partials/header.html b/templates/partials/header.html
+index 18aa923..60bdafb 100644
+--- a/templates/partials/header.html
++++ b/templates/partials/header.html
+@@ -29,11 +29,11 @@
+       </nav>
+ 
+       <!-- Language Switcher -->
+-      <a id="lang-switcher" href="#" class="lang-switcher" title="Switch language" onclick="switchLang(event)">
+-        <span id="lang-fr" class="lang-active">FR</span>
++      <span class="lang-switcher">
++        <a id="lang-fr" href="{site.url.resolve('/')}" class="lang-active" title="Version française">FR</a>
+         <span style="opacity:0.4;">/</span>
+-        <span id="lang-en">EN</span>
+-      </a>
++        <a id="lang-en" href="{site.url.resolve('/en/')}" title="English version">EN</a>
++      </span>
+ 
+       <!-- Theme Toggle -->
+       <button class="nav-item theme-toggle" aria-label="Toggle theme">
+@@ -48,43 +48,19 @@
+ </header>
+ 
+ <script>
+-// Language switcher
++// Highlight active language based on current URL
+ (function() {
+-  const lang = localStorage.getItem('lang') || 'fr';
+-  updateLangDisplay(lang);
+-})();
+-
+-function updateLangDisplay(lang) {
+-  const fr = document.getElementById('lang-fr');
+-  const en = document.getElementById('lang-en');
+-  if (!fr || !en) return;
+-  if (lang === 'en') {
+-    fr.classList.remove('lang-active');
+-    en.classList.add('lang-active');
+-  } else {
+-    en.classList.remove('lang-active');
+-    fr.classList.add('lang-active');
+-  }
+-}
+-
+-function switchLang(e) {
+-  e.preventDefault();
+-  const current = localStorage.getItem('lang') || 'fr';
+-  const next = current === 'fr' ? 'en' : 'fr';
+-  localStorage.setItem('lang', next);
+-  updateLangDisplay(next);
+-
+-  // Redirect to /en/ prefix or back to root
+   const path = window.location.pathname;
+-  if (next === 'en') {
+-    if (!path.startsWith('/en')) {
+-      const enPath = '/en' + (path === '/' ? '/' : path);
+-      window.location.href = enPath;
+-    }
++  const isEn = path.includes('/en/') || path.endsWith('/en');
++  const frEl = document.getElementById('lang-fr');
++  const enEl = document.getElementById('lang-en');
++  if (!frEl || !enEl) return;
++  if (isEn) {
++    frEl.classList.remove('lang-active');
++    enEl.classList.add('lang-active');
+   } else {
+-    if (path.startsWith('/en')) {
+-      window.location.href = path.replace(/^\/en/, '') || '/';
+-    }
++    enEl.classList.remove('lang-active');
++    frEl.classList.add('lang-active');
+   }
+-}
++})();
+ </script>
+-- 
+2.43.0
+

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="{site.data.lang ?: 'en'}" dir="{site.data.direction ?: 'ltr'}">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {#seo page site /}
     {#favicon site/}
 
-    <!-- Theme initialization script (prevent flash) -->
+    <!-- Prevent dark-mode flash -->
     <script>
       (function() {
         const theme = localStorage.getItem('theme') || 'light';
@@ -15,8 +15,6 @@
         }
       })();
     </script>
-
-
 
     {#bundle /}
 </head>
@@ -29,11 +27,35 @@
 
     <footer class="site-footer">
         <div class="footer-inner">
-            <p>Powered by <a href="https://iamroq.com" target="_blank">Roq 🗿</a>!</p>
-            <p>&copy; {now.format('Y')} {site.title}. All rights reserved.</p>
+            <!-- Col 1 : Marque + réseaux sociaux -->
+            <div>
+                <p class="footer-brand">Ditchbridge</p>
+                <p class="footer-tagline">De la donnée à l'action : pilotage opérationnel pour les environnements complexes.</p>
+            </div>
+            <!-- Col 2 : Navigation -->
+            <div>
+                <p class="footer-col-title">Navigation</p>
+                <nav class="footer-links">
+                    <a href="{site.url.resolve('/product')}">La plateforme</a>
+                    <a href="{site.url.resolve('/company')}">La société</a>
+                    <a href="{site.url.resolve('/team')}">L'équipe</a>
+                    <a href="{site.url.resolve('/values')}">Nos valeurs</a>
+                </nav>
+            </div>
+            <!-- Col 3 : Liens utiles -->
+            <div>
+                <p class="footer-col-title">Liens utiles</p>
+                <nav class="footer-links">
+                    <a href="{site.url.resolve('/contact')}">Contact</a>
+                    <a href="{site.url.resolve('/about')}">Mentions légales</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; {now.format('Y')} Ditchbridge. Tous droits réservés.</span>
+            <span>Construit avec <a href="https://iamroq.dev" target="_blank" style="text-decoration:none;color:inherit;">Roq 🗿</a></span>
         </div>
     </footer>
 
 </body>
 </html>
-

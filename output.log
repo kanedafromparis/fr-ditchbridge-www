@@ -1,0 +1,25 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< fr.ditchbridge:www >-------------------------
+[INFO] Building www 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.35.1 has been relocated to io.quarkus:quarkus-junit:jar:3.35.1: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- quarkus:3.35.1:dev (default-cli) @ www ---
+[INFO] Invoking resources:3.4.0:resources (default-resources) @ www
+[INFO] skip non existing resourceDirectory /workspaces/fr-ditchbridge-www/src/main/resources
+[INFO] Invoking quarkus:3.35.1:generate-code (default) @ www
+[INFO] Invoking compiler:3.14.1:compile (default-compile) @ www
+[INFO] No sources to compile
+[INFO] Invoking resources:3.4.0:testResources (default-testResources) @ www
+[INFO] skip non existing resourceDirectory /workspaces/fr-ditchbridge-www/src/test/resources
+[INFO] Invoking quarkus:3.35.1:generate-code-tests (default) @ www
+[INFO] Invoking compiler:3.14.1:testCompile (default-testCompile) @ www
+[INFO] No sources to compile
+
+----------------------------
+--- Help improve Quarkus ---
+----------------------------
+* Learn more: https://quarkus.io/usage/
+* Do you agree to contribute anonymous build time data to the Quarkus community? (y/n and enter) 

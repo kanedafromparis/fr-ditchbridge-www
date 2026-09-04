@@ -1,6 +1,6 @@
 ---
 #layout: default
-title: Nos Valeurs
+title: Nos valeurs
 ---
 
 ## 1. L'exigence du terrain
@@ -13,11 +13,11 @@ Quand l'erreur n'est pas une option, la précision devient une obligation. Nous 
 
 ## 3. La simplicité
 
-Derrière des technologies hautement complexes, nous faisons le choix de l'évidence. Nous transformons les volumes de données et la logistique lourde en interfaces fluides, claires et intuitives pour que vous restiez maître du jeu en un coup d'œil.
+Derrière des technologies hautement complexes, nous faisons le choix de l'évidence. Nous transformons les volumes de données et les tableaux de bord illisibles en interfaces fluides, claires et intuitives pour que vous restiez maître du jeu en un coup d'œil.
 
 ## 4. L'esprit d'équipe
 
-Un événement ou un projet d'envergure ne se réussit jamais seul. Nous nous pensons comme le prolongement de vos équipes : un partenaire disponible, à l'écoute et engagé à vos côtés, de la préparation jusqu'au bilan.
+Un événement ou un projet d'envergure ne se réussit jamais seul. L'ADN sportif de son fondateur se retrouve dans les valeurs de partage, d'engagement et de cohésion qui animent Ditchbridge. Nous nous pensons comme le prolongement de vos équipes : un partenaire disponible, à l'écoute et engagé à vos côtés, de la préparation jusqu'au bilan.
 
 ## 5. La souveraineté
 

@@ -1,0 +1,171 @@
+---
+layout: default
+---
+
+<!-- ── Hero Section ───────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-inner">
+    <span class="hero-badge">Plateforme de pilotage opérationnel</span>
+    <h1 class="hero-title">
+      {page.data.greeting}
+    </h1>
+    <div class="hero-accent-line" aria-hidden="true"></div>
+    <p class="hero-tagline">
+      {page.data.tagline}
+    </p>
+    <div class="hero-actions">
+      <a href="{site.url.resolve('/product')}" class="btn-primary">
+        Découvrir la plateforme →
+      </a>
+      <a href="{site.url.resolve('/contact')}" class="btn-secondary">
+        Prendre contact
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Feature highlights (pictogrammes officiels) ────────────── -->
+<div class="features-grid">
+
+  <!-- Vision globale — œil (sage) -->
+  <div class="feature-card">
+    <div class="feature-icon-wrap" style="background:#5C6A61;">
+      <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Two overlapping eyes / surveillance icon matching brand -->
+        <ellipse cx="9" cy="8" rx="8" ry="8" fill="#E9E6DE" opacity="0.9"/>
+        <ellipse cx="17" cy="14" rx="8" ry="8" fill="#E9E6DE"/>
+        <circle cx="9" cy="8" r="3.5" fill="#5C6A61"/>
+        <circle cx="17" cy="14" r="3.5" fill="#5C6A61"/>
+      </svg>
+    </div>
+    <h3>Vision globale</h3>
+    <p>Un tableau de bord unique centralise toutes vos données opérationnelles : flux, accès, équipes et alertes — en temps réel.</p>
+  </div>
+
+  <!-- Réactivité terrain — alerte (orange) -->
+  <div class="feature-card">
+    <div class="feature-icon-wrap" style="background:#ED6609;">
+      <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="13,1 25,23 1,23" fill="#E9E6DE"/>
+        <rect x="12" y="9" width="2" height="7" rx="1" fill="#ED6609"/>
+        <circle cx="13" cy="19.5" r="1.2" fill="#ED6609"/>
+      </svg>
+    </div>
+    <h3>Réactivité terrain</h3>
+    <p>Détection précoce des signaux d'alerte, escalade automatique et plan d'action raisonné — avant que la situation se dégrade.</p>
+  </div>
+
+  <!-- Coordination fluide — équipes (violet) -->
+  <div class="feature-card">
+    <div class="feature-icon-wrap" style="background:#4D22A8;">
+      <svg width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- 3 silhouettes matching the brand "people" icon -->
+        <circle cx="7" cy="6" r="4" fill="#E9E6DE"/>
+        <path d="M0 20 C0 14 14 14 14 20" fill="#E9E6DE"/>
+        <circle cx="21" cy="6" r="4" fill="#E9E6DE" opacity="0.7"/>
+        <path d="M14 20 C14 14 28 14 28 20" fill="#E9E6DE" opacity="0.7"/>
+        <circle cx="14" cy="4" r="3" fill="#E9E6DE"/>
+      </svg>
+    </div>
+    <h3>Coordination fluide</h3>
+    <p>Chaque intervenant reçoit sa mission en temps réel, l'exécute et confirme. Une chaîne continue de la décision à l'action.</p>
+  </div>
+
+</div>
+
+<!-- ── Le constat — 4 tuiles problème (style présentation) ───── -->
+<div class="constat-section">
+  <p class="constat-eyebrow">Le constat</p>
+  <h2 class="constat-title">Les opérations complexes, c'est beaucoup de coordination</h2>
+
+  <div class="constat-grid">
+
+    <!-- Multiples acteurs -->
+    <div class="constat-tile">
+      <div class="constat-picto" style="background:#4D22A8;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="9" cy="9" r="5" fill="#E9E6DE"/>
+          <path d="M1 26 C1 18 17 18 17 26" fill="#E9E6DE"/>
+          <circle cx="23" cy="9" r="5" fill="#E9E6DE" opacity="0.6"/>
+          <path d="M15 26 C15 18 31 18 31 26" fill="#E9E6DE" opacity="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <p class="constat-label">De multiples acteurs</p>
+        <p class="constat-desc">Sécurité, technique, secours, logistique : chacun a ses outils et ses informations.</p>
+      </div>
+    </div>
+
+    <!-- Informations dispersées -->
+    <div class="constat-tile">
+      <div class="constat-picto" style="background:#5C6A61;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Bidirectional arrows -->
+          <polygon points="20,8 32,16 20,24" fill="#E9E6DE"/>
+          <rect x="4" y="14" width="20" height="4" fill="#E9E6DE"/>
+          <polygon points="12,8 0,16 12,24" fill="#E9E6DE" opacity="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <p class="constat-label">Informations dispersées</p>
+        <p class="constat-desc">Les données sont éparpillées entre services. Personne n'a la vision d'ensemble en temps réel.</p>
+      </div>
+    </div>
+
+    <!-- Coordination artisanale -->
+    <div class="constat-tile">
+      <div class="constat-picto" style="background:#1a1a1a;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Dots scattered = fragmented info -->
+          <circle cx="8" cy="8" r="2.5" fill="#E9E6DE"/>
+          <circle cx="20" cy="6" r="2" fill="#E9E6DE" opacity="0.7"/>
+          <circle cx="26" cy="14" r="2.5" fill="#E9E6DE"/>
+          <circle cx="5" cy="20" r="2" fill="#E9E6DE" opacity="0.6"/>
+          <circle cx="16" cy="22" r="2.5" fill="#E9E6DE"/>
+          <circle cx="26" cy="24" r="2" fill="#E9E6DE" opacity="0.5"/>
+          <circle cx="12" cy="14" r="2" fill="#E9E6DE" opacity="0.8"/>
+        </svg>
+      </div>
+      <div>
+        <p class="constat-label">Coordination artisanale</p>
+        <p class="constat-desc">Radio, téléphone, messages : l'information se perd, les décisions prennent du temps.</p>
+      </div>
+    </div>
+
+    <!-- Incidents subis -->
+    <div class="constat-tile">
+      <div class="constat-picto" style="background:#ED6609;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="16,2 30,28 2,28" fill="#E9E6DE"/>
+          <rect x="14.5" y="11" width="3" height="9" rx="1.5" fill="#ED6609"/>
+          <circle cx="16" cy="23.5" r="1.8" fill="#ED6609"/>
+        </svg>
+      </div>
+      <div>
+        <p class="constat-label">Incidents subis</p>
+        <p class="constat-desc">Affluence, panne, accès bloqué : on réagit dans l'urgence plutôt que d'anticiper.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Contenu Markdown ───────────────────────────────────────── -->
+<section class="max-w-7xl mx-auto px-6 py-4 prose dark:prose-invert prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 max-w-none">
+  {#insert /}
+</section>
+
+<!-- ── CTA avec arche décorative ─────────────────────────────── -->
+<div class="max-w-7xl mx-auto px-6">
+  <div class="cta-section">
+
+    <h2>Vous souhaitez en savoir plus ou collaborer ?</h2>
+    <p>Ditchbridge est à l'écoute des organisateurs, prestaraires techniques, financeurs, gestionnaires d'environnements complexes pour tout projet de collaboration.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="{site.url.resolve('/contact')}" class="btn-white">Prendre contact</a>
+      <a href="{site.url.resolve('/product')}" style="color:white;text-decoration:none;border:1px solid rgba(255,255,255,0.5);padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;font-size:0.875rem;display:inline-flex;align-items:center;gap:0.5rem;">
+        Découvrir la plateforme
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+From 10f46d795897b74447ba3f5f9225fa9905aba41d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 28 Aug 2026 07:34:17 +0000
+Subject: [PATCH] =?UTF-8?q?refactor:=20remplacer=20la=20page=20Offre=20par?=
+ =?UTF-8?q?=20une=20pr=C3=A9sentation=20Plateforme=20(stade=20POC)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- content/product.md : réécriture complète, ton POC crédible et ambitieux,
+  sections vision / fonctionnalités / stade actuel / partenariat IMT
+- content/en/product.md : traduction anglaise
+- Navigation FR : L'offre → La plateforme
+- Navigation EN : Our Offer → The Platform
+- landing.html : boutons CTA mis à jour (Offre → Plateforme, Démo → Contact)
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_011S4Zz9Lu7dQo1JixzpZ2wb
+---
+ content/en/index.md            |  2 +-
+ content/en/product.md          | 55 ++++++++++++++++++++++++++++------
+ content/index.md               |  2 +-
+ content/product.md             | 55 ++++++++++++++++++++++++++++------
+ templates/layouts/landing.html | 12 ++++----
+ 5 files changed, 100 insertions(+), 26 deletions(-)
+
+diff --git a/content/en/index.md b/content/en/index.md
+index 15e9023..67debae 100644
+--- a/content/en/index.md
++++ b/content/en/index.md
+@@ -6,7 +6,7 @@ description: >-
+ greeting: Welcome to DitchBridge
+ tagline: The event platform that connects your teams and drives your operations in real time.
+ navigation:
+-  - title: Our Offer
++  - title: The Platform
+     url: /en/product
+   - title: The Company
+     url: /en/company
+diff --git a/content/en/product.md b/content/en/product.md
+index bea8a5c..b33aa3b 100644
+--- a/content/en/product.md
++++ b/content/en/product.md
+@@ -1,19 +1,56 @@
+ ---
+-title: Multiple tools to coordinate your event teams
++title: The Platform
+ ---
+ 
+-## DitchBridge Supervisor
++## Our vision: bridging technology and the field
+ 
+-DitchBridge Supervisor is the intelligent control tower designed to oversee and optimise the continuity of your operations. Through advanced data centralisation and real-time analytics, it ensures smooth, proactive and secure management of your workflows. The essential tool for staying one step ahead — anticipate bottlenecks and make the right decisions at the right time.
++Large-scale events — festivals, sports competitions, institutional gatherings — mobilise hundreds of people, vendors, and simultaneous information flows. Yet coordination still relies too often on fragmented tools, scattered communication channels, and decisions made without a shared picture of what's happening.
+ 
+-## DitchBridge Workflow Assistant
++DitchBridge was born from this observation. Our ambition: build the reference platform for operational management of complex events — connecting decision-makers, field teams, and service providers within a unified digital ecosystem.
+ 
+-DitchBridge Workflow Assistant is your virtual partner dedicated to automating and simplifying your day-to-day processes. By orchestrating complex tasks and guiding your teams step by step, it eliminates operational friction and significantly reduces human errors. An intelligent assistant that smooths project execution, accelerates your approvals and frees up time for your highest-value missions.
++---
++
++## What DitchBridge enables
++
++### 🗺️ Centralised supervision
++
++A single dashboard aggregates all event data streams in real time: ticketing, access control, zone status, operational indicators. Event managers have an immediate, global view — without switching between multiple tools.
++
++### ⚡ Field responsiveness
++
++Alerts are detected, qualified, and escalated automatically according to configurable rules. Teams receive the right information at the right moment — on mobile or smartwatch — and can validate an action or trigger an intervention in seconds.
+ 
+-## DitchBridge Incident Management
++### 🤝 Coordination without silos
+ 
+-DitchBridge Incident Management is the solution dedicated to rapidly neutralising disruptions and protecting your services. By centralising alerts, automatic ticket escalation and crisis team coordination, it drastically reduces your mean time to resolve (MTTR). Protect your operations against unforeseen events, minimise operational impact and strengthen your organisation's resilience through comprehensive tracking and traceability.
++DitchBridge connects every stakeholder in the event: from the control-room manager to the on-site agent, including external service providers. No more information lost between organisational layers or operational teams.
+ 
+-## DitchBridge Watch & Phone Application
++### 📋 Incident management
++
++Incidents are logged, assigned, and tracked through to resolution. Each one generates a complete audit trail, usable in post-event reviews to continuously improve processes.
++
++### 📱 Total accessibility
++
++The DitchBridge ecosystem covers every use case: web interface for decision-makers, mobile app for field teams, wearable integration for real-time interventions.
++
++---
++
++## Current stage: Proof of Concept
++
++DitchBridge is currently in its **Proof of Concept (POC)** phase. The technical foundations are in place, use cases have been validated with event industry experts, and the first modules are under active development.
++
++This phase allows us to:
++- Refine the real needs of event organisers
++- Validate architectural choices with our research partner
++- Gather early field feedback ahead of a pilot deployment
++
++We are open to partnerships with organisers who wish to co-build the solution and take part in the first experimental deployments.
++
++---
++
++## Built on solid scientific foundations
++
++DitchBridge draws on the work of the **Centre Génie Industriel at IMT Mines Albi** and its **RIO** research platform (*Risk management & Interoperability within Organizations*). This collaboration ensures that the decision-support algorithms embedded in the platform are grounded in proven models — not just product intuition.
++
++---
+ 
+-DitchBridge Watch & Phone Application keeps your operations management at your fingertips, wherever you are. Connected in real time to the DitchBridge ecosystem, this mobile and wearable suite instantly alerts you to critical events, lets you approve workflows with a single gesture and enables emergency intervention without opening a laptop. Combine absolute responsiveness, total mobility and operational continuity through a fluid user experience designed for field teams and management alike.
++*Want to learn more about our vision or explore a partnership? [Contact us](/en/contact).*
+diff --git a/content/index.md b/content/index.md
+index f5b7b6b..411acbc 100644
+--- a/content/index.md
++++ b/content/index.md
+@@ -6,7 +6,7 @@ description: >-
+ greeting: Bienvenue sur DitchBridge
+ tagline: La plateforme événementielle qui connecte vos équipes et pilote vos opérations en temps réel.
+ navigation:
+-  - title: L'offre
++  - title: La plateforme
+     url: /product
+   - title: La société
+     url: /company
+diff --git a/content/product.md b/content/product.md
+index d40af46..a77d5c2 100644
+--- a/content/product.md
++++ b/content/product.md
+@@ -1,19 +1,56 @@
+ ---
+-title: Plusieurs outils pour piloter la coordination de vos événements
++title: La Plateforme
+ ---
+ 
+-## DitchBridge Supervisor
++## Une vision : réconcilier technologie et terrain
+ 
+-DitchBridge Supervisor est la tour de contrôle intelligente conçue pour superviser et optimiser la continuité de vos opérations. Grâce à une centralisation avancée des données et une analyse en temps réel, il garantit un pilotage fluide, préventif et sécurisé de vos flux de travail. L'outil indispensable pour garder un coup d'avance, anticiper les goulots d'étranglement et prendre les bonnes décisions au bon moment.
++Les grands événements — festivals, compétitions sportives, rassemblements institutionnels — mobilisent des centaines de personnes, de prestataires et de flux d'information simultanés. Pourtant, la coordination repose encore trop souvent sur des outils fragmentés, des canaux de communication disparates et des décisions prises sans vision d'ensemble.
+ 
+-## DitchBridge Workflow Assistant
++DitchBridge est né de ce constat. Notre ambition : construire la plateforme de référence pour la gestion opérationnelle des événements complexes — en connectant décideurs, équipes terrain et prestataires au sein d'un écosystème numérique unifié.
+ 
+-DitchBridge Workflow Assistant est votre partenaire virtuel dédié à l'automatisation et à la simplification de vos processus quotidiens. En orchestrant vos tâches complexes et en guidant vos équipes étape par étape, il élimine les frictions opérationnelles et réduit considérablement les erreurs humaines. Un assistant intelligent qui fluidifie l'exécution des projets, accélère vos validations et libère du temps pour vos missions à forte valeur ajoutée.
++---
++
++## Ce que DitchBridge permet de faire
++
++### 🗺️ Supervision centralisée
++
++Un tableau de bord unique agrège en temps réel l'ensemble des flux de l'événement : billetterie, contrôle d'accès, état des zones, indicateurs opérationnels. Les responsables disposent d'une vision globale et instantanée, sans jongler entre plusieurs outils.
++
++### ⚡ Réactivité terrain
++
++Les alertes sont détectées, qualifiées et escaladées automatiquement selon des règles paramétrables. Les équipes reçoivent les bonnes informations au bon moment — sur mobile ou montre connectée — et peuvent valider une action ou déclencher une intervention en quelques secondes.
+ 
+-## DitchBridge Incident Management
++### 🤝 Coordination sans silos
+ 
+-DitchBridge Incident Management est la solution dédiée à la neutralisation rapide des dysfonctionnements et à la protection de vos services. En centralisant les alertes, l'escalade automatique des tickets et la coordination des équipes de crise, il réduit drastiquement votre temps moyen de résolution (MTTR). Protégez votre activité face aux aléas, minimisez l'impact opérationnel et renforcez la résilience de votre organisation grâce à un suivi et une traçabilité sans faille.
++DitchBridge connecte tous les acteurs de l'événement : du manager en tour de contrôle à l'agent sur le terrain, en passant par les prestataires externes. Fini les pertes d'information entre les couches hiérarchiques ou les équipes métier.
+ 
+-## DitchBridge Watch & Phone Application
++### 📋 Gestion des incidents
++
++Les dysfonctionnements sont tracés, assignés et suivis jusqu'à leur résolution. Chaque incident génère un historique complet, exploitable en post-événement pour améliorer les processus.
++
++### 📱 Accessibilité totale
++
++L'écosystème DitchBridge couvre l'ensemble des usages : interface web pour les décideurs, application mobile pour les équipes terrain, intégration wearable pour les interventions en temps réel.
++
++---
++
++## Stade actuel : Proof of Concept
++
++DitchBridge est aujourd'hui en phase de **Proof of Concept (POC)**. Les fondations techniques sont posées, les cas d'usage validés avec des experts du secteur événementiel, et les premiers modules sont en cours de développement.
++
++Cette phase nous permet de :
++- Affiner les besoins réels des organisateurs d'événements
++- Valider les choix d'architecture avec notre partenaire de recherche
++- Construire les premiers retours terrain avant un déploiement pilote
++
++Nous sommes ouverts à des partenariats avec des organisateurs souhaitant co-construire la solution et participer aux premières expérimentations.
++
++---
++
++## Un socle scientifique solide
++
++DitchBridge s'appuie sur les travaux du **Centre Génie Industriel d'IMT Mines Albi** et sa plateforme de recherche **RIO** (*Risk management & Interoperability within Organizations*). Cette collaboration garantit que les algorithmes décisionnels intégrés à la plateforme reposent sur des modèles éprouvés — et pas seulement sur des intuitions produit.
++
++---
+ 
+-DitchBridge Watch & Phone Application garde la gestion de vos opérations à portée de main, où que vous soyez. Connectée en temps réel à l'écosystème DitchBridge, cette suite mobile et wearable vous alerte instantanément des évènements critiques, vous permet d'approuver des workflows en un geste et d'intervenir en urgence sans ouvrir un ordinateur. Alliez réactivité absolue, mobilité totale et continuité opérationnelle grâce à une expérience utilisateur fluide, conçue pour les équipes du terrain jusqu'au management.
+\ No newline at end of file
++*Vous souhaitez en savoir plus sur notre vision ou explorer un partenariat ? [Contactez-nous](/contact).*
+diff --git a/templates/layouts/landing.html b/templates/layouts/landing.html
+index 60343b3..f6b763f 100644
+--- a/templates/layouts/landing.html
++++ b/templates/layouts/landing.html
+@@ -14,10 +14,10 @@ layout: default
+     </p>
+     <div class="hero-actions">
+       <a href="{site.url.resolve('/product')}" class="btn-primary">
+-        Découvrir l'offre →
++        Découvrir la plateforme →
+       </a>
+       <a href="{site.url.resolve('/contact')}" class="btn-secondary">
+-        Demander une démo
++        Prendre contact
+       </a>
+     </div>
+   </div>
+@@ -50,12 +50,12 @@ layout: default
+ <!-- ── CTA ────────────────────────────────────────────────────── -->
+ <div class="max-w-7xl mx-auto px-6">
+   <div class="cta-section">
+-    <h2>Prêt à piloter votre prochain événement ?</h2>
+-    <p>Rejoignez les équipes qui font confiance à DitchBridge pour leurs grands rassemblements.</p>
++    <h2>Vous souhaitez en savoir plus ou collaborer ?</h2>
++    <p>DitchBridge est en phase POC et recherche des partenaires, financeurs et organisateurs d'événements pour co-construire la solution.</p>
+     <div class="flex gap-4 justify-center flex-wrap">
+-      <a href="{site.url.resolve('/contact')}" class="btn-white">Demander une démo gratuite</a>
++      <a href="{site.url.resolve('/contact')}" class="btn-white">Prendre contact</a>
+       <a href="{site.url.resolve('/product')}" style="color:white;text-decoration:none;border:1px solid rgba(255,255,255,0.5);padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;font-size:0.875rem;display:inline-flex;align-items:center;gap:0.5rem;">
+-        Voir l'offre complète
++        Découvrir la plateforme
+       </a>
+     </div>
+   </div>
+-- 
+2.43.0
+

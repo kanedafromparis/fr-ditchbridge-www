@@ -32,7 +32,7 @@ jobs:
           # bucket_id: ${{ secrets.S3_SCW_BUCKET_ID }}
           access_key: ${{ secrets.SCW_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
-      - name: Interact with object storage
+      - name: Inspect mime type issue
         run: |
           if ${{ vars.DISPLAY_MIME || 'false' }} ; then
             echo "-----"

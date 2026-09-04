@@ -37,9 +37,13 @@ jobs:
           echo "-----"
           s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/app-VVQ4RHFT.css 
           echo "-----"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/index.html | grep MIME
           echo "-----"
-          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/*.html | grep MIME
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/favicon.ico | grep MIME
           echo "-----"
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/Photo_SPA.jpg | grep MIME
+          echo "-----"
+
           s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css | grep MIME
           echo "-----"
 
@@ -47,7 +51,7 @@ jobs:
         run: |
           cd target/roq &&\
           s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css | grep MIME
-          s3cmd sync --no-mime-magic  --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          s3cmd sync --no-mime-magic --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
           # --guess-mime-type
           # s3cmd modify "s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
           # find . -name "*.css" -exec  s3cmd put {} --mime-type "text/css" --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;

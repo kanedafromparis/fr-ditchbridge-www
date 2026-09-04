@@ -38,7 +38,7 @@ jobs:
           s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/app-VVQ4RHFT.css 
           echo "-----"
           echo "-----"
-          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/ | grep MIME
+          s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/*.html | grep MIME
           echo "-----"
           s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css | grep MIME
           echo "-----"

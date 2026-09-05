@@ -1,0 +1,56 @@
+name: Roq Site Deploy to SWC
+
+on:
+  push:
+    branches: [ "cas/draft-deploy" ]   # Switch to the branch which should be deployed to GitHub Pages
+  #schedule:
+  #  - cron: "0 5 * * *"  # Runs every day at 05:00 UTC to publish scheduled content
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      site-full-url: ${{ vars.SITE_URL }}
+      site-url: ${{ vars.SITE_URL }}
+      site-path: "/"
+    steps:
+      - uses: actions/checkout@v6
+      - name: Generate Roq Site
+        uses: quarkiverse/quarkus-roq@v1.1
+        with:
+          site-url: ${{ vars.SITE_URL }}
+          site-path: "/"
+          github-pages: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}   # Used to automatically get the GitHub Pages url
+      - name: Set up S3cmd cli tool
+        # https://github.com/marketplace/actions/use-s3cmd
+        uses: s3-actions/s3cmd@v3.0.0
+        with:
+          provider: scaleway # default is linode
+          region: 'fr-par'
+          # bucket_id: ${{ secrets.S3_SCW_BUCKET_ID }}
+          access_key: ${{ secrets.SCW_ACCESS_KEY_ID }}
+          secret_key: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
+      - name: Inspect mime type issue
+        run: |
+          if ${{ vars.DISPLAY_MIME || 'false' }} ; then
+            echo "-----"
+            s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/app-VVQ4RHFT.css | grep MIME
+            echo "-----"
+            s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/index.html | grep MIME
+            echo "-----"
+            s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/favicon.ico | grep MIME
+            echo "-----"
+            s3cmd info s3://${{ secrets.S3_SCW_BUCKET_ID }}/Photo_SPA.jpg | grep MIME
+            echo "-----"
+          fi
+
+      - name: Interact with object storage
+        run: |
+          cd target/roq &&\
+          s3cmd sync --guess-mime-type --no-mime-magic --storage-class "ONEZONE_IA" --recursive --acl-public . s3://${{ secrets.S3_SCW_BUCKET_ID }}/
+          # s3cmd modify "s3://${{ secrets.S3_SCW_BUCKET_ID }}/static/bundle/*.css" --mime-type="text/css"
+          # find . -name "*.css" -exec  s3cmd put {} --mime-type "text/css" --acl-public s3://${{ secrets.S3_SCW_BUCKET_ID }}/ \;
+          # text/javascript
+          # text/javascript

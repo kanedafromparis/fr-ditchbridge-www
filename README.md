@@ -46,6 +46,38 @@ roq add theme:default      # Add a theme
 roq update                 # Update to latest Roq version
 ```
 
+release site commande 
+
+```bash
+QUARKUS_ROQ_GENERATOR_BATCH=true
+ROOT_PATH="/fr-ditchbridge-www/"
+SITE_URL="https://kanedafromparis.github.io"
+ ./mvnw -B package quarkus:run \
+      -DskipTests \
+      -Dquarkus.roq.generator.batch=${QUARKUS_ROQ_GENERATOR_BATCH} \
+      -Dquarkus.http.root-path="${ROOT_PATH}"\
+      -Dsite.url="${SITE_URL}"
+```
+
+```bash
+QUARKUS_ROQ_GENERATOR_BATCH=true
+ROOT_PATH="/"
+SITE_URL="https://www-test.db-laredo.eu"
+ ./mvnw -B package quarkus:run \
+      -DskipTests \
+      -Dquarkus.roq.generator.batch=${QUARKUS_ROQ_GENERATOR_BATCH} \
+      -Dquarkus.http.root-path="${ROOT_PATH}" \
+      -Dsite.url="${SITE_URL}"
+```
+
+```
+BUCKET_NAME="/"
+ROOT_PATH="/"
+ROOT_PATH="/"
+aws s3api put-object --bucket BucketName --key dir-1/ObjectName --body ObjectName
+
+```
+
 ## AI Coding Assistants
 
 Give your AI assistant full context about Roq by pointing it to https://iamroq.dev/llms.txt.
